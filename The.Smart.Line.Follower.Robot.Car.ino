@@ -1,20 +1,20 @@
 
 // Motor A
-const int ENA = 11; // PWM pin for Motor A
-const int IN1 = 10;  // IN1 pin for Motor A
-const int IN2 = 9;  // IN2 pin for Motor A
-#define s 100 //base speed
-#define t 130//turning speed
+const int ENA = 11; 
+const int IN1 = 10; 
+const int IN2 = 9;  
+#define s 100 
+#define t 130
 
 
 // Motor B
-const int ENB = 6; // PWM pin for Motor B
-const int IN3 = 8;  // IN3 pin for Motor B
-const int IN4 = 7;  // IN4 pin for Motor B
+const int ENB = 6;
+const int IN3 = 8;  
+const int IN4 = 7;  
 
 // IR Sensors
-const int IRSensorLeft = 2;   // Left IR sensor
-const int IRSensorRight = 3;  // Right IR sensor
+const int IRSensorLeft = 2;  
+const int IRSensorRight = 3;  
 
 void setup() {
   // Set motor pins as outputs
@@ -60,45 +60,45 @@ void loop() {
     stopMotors();
   }
 
-  delay(100); // Add a short delay to make the print readable
+  delay(100);
 }
 
 void moveForward() {
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
-  analogWrite(ENA, s); // Adjust speed here
+  analogWrite(ENA, s);
 
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
-  analogWrite(ENB, s); // Adjust speed here
+  analogWrite(ENB, s); 
 }
 
 void turnRight() {
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
-  analogWrite(ENA, t); // Adjust speed here
+  analogWrite(ENA, t);
 
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
-  analogWrite(ENB, t); // Adjust speed here
+  analogWrite(ENB, t);
 }
 
 void turnLeft() {
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
-  analogWrite(ENA, t); // Adjust speed here
+  analogWrite(ENA, t); 
 
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
-  analogWrite(ENB, t); // Adjust speed here
+  analogWrite(ENB, t); 
 }
 
 void stopMotors() {
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
-  analogWrite(ENA, 0); // Stop motor
+  analogWrite(ENA, 0); 
 
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, LOW);
-  analogWrite(ENB, 0); // Stop motor
+  analogWrite(ENB, 0); 
 }
